@@ -10,13 +10,12 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 function App() {
   return (
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Suspense fallback={<Spin/>}><MainPage/></Suspense>}/>
-      {/* <Route path="/" element={<Suspense fallback={<Spin/>}><GamesList/></Suspense>}/> */}
-      <Route path="/game/:gameId" element={<Suspense fallback={<Spin/>}><GamePage/></Suspense>}/>
-      <Route path="*" element={<Suspense fallback={<Spin/>}><NotFoundPage /></Suspense>} />
-    </Routes>
+    <BrowserRouter basename="/avito_test_task">
+      <Routes>
+        <Route path="/" element={<Suspense fallback={<Spin/>}><MainPage/></Suspense>}/>
+        <Route path="/game/:gameId" element={<Suspense fallback={<Spin/>}><GamePage/></Suspense>}/>
+        <Route path="*" element={<Suspense fallback={<Spin/>}><NotFoundPage /></Suspense>} />
+      </Routes>
   </BrowserRouter>
   );
 }
